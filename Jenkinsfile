@@ -9,9 +9,14 @@ pipeline {
       stage ('Build') {
           
          steps {
+             withCredentials([usernamePassword(
+                 credentialsId: '${DockerCreds}',
+                 usernameVariable: 'DEPLOY_USERNAME',
+                 passwordVariable: 'DEPLOY_PASSWORD',
+                )])
              
                git 'https://github.com/MallikarjunagoudaCM/jenkinspipe1.git'
-               sh "docker login -u $MYVARNAME_USR -p $MYVARNAME_PSW"
+               sh 'docker login -u $DEPLOY_USERNAME -p $DEPLOY_PASSWORD'
          }       
              
 
