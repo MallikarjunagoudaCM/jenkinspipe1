@@ -1,8 +1,8 @@
 pipeline {
   agent any
   parameters {
-    credentials credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: 'dockercred', description: 'Please Enter Docker Creds', name: 'DockerCreds', required: true
-    }
+  credentials credentialType: 'org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl', defaultValue: '', description: 'Please Enter Docker Creds', name: 'DockerCreds', required: true
+  }
 
   stages {
 
