@@ -16,7 +16,7 @@ pipeline {
                 )]) {
              
                git 'https://github.com/MallikarjunagoudaCM/jenkinspipe1.git'
-               sh "docker login -u $DEPLOY_USERNAME -p $DEPLOY_PASSWORD"
+               sh ('docker login -u $DEPLOY_USERNAME -p $DEPLOY_PASSWORD')
                 }
          }       
              
