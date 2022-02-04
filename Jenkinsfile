@@ -26,8 +26,8 @@ pipeline {
          }    
     stage ('docker login') {
         steps {             
-               git 'https://github.com/MallikarjunagoudaCM/jenkinspipe1.git'
-               sh ('docker login -u $params.Username -p $params.Password')
+               
+               sh ('docker login -u $Username -p $Password')
                  
     }   
 
