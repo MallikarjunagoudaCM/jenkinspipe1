@@ -2,6 +2,8 @@ pipeline {
   agent any
   parameters {
     credentials credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: 'dockertest', description: 'Please enter Docker creds', name: 'DockerCreds', required: true
+    string description: 'Please Enter the Docker Username.', name: 'Username'
+    password defaultValue: '', name: 'Password'
   }
 
   stages {
@@ -20,6 +22,19 @@ pipeline {
                 }
          }       
              
+        
+         }    
+    stage ('docker login') {
+        steps {
+             withCredentials([usernamePassword(
+                 credentialsId: '${Password}',
+                 passwordVariable: 'DEPLOY_PASSWORD',
+                 )]) {
+             
+               git 'https://github.com/MallikarjunagoudaCM/jenkinspipe1.git'
+               sh ('docker login -u $params.Username -p $DEPLOY_PASSWORD')
+                 }
+    }   
 
          }
       }
