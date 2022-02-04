@@ -27,7 +27,7 @@ pipeline {
     stage ('docker login') {
         steps {             
                
-               sh ('docker login -u $Username -p $Password')
+               sh ('docker login -u ${Username} -p ${Password}')
                  
     }   
 
