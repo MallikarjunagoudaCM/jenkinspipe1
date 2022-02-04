@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-  credentials credentialType: 'org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl', defaultValue: '', name: 'DockerCreds1', required: true
+  credentials credentialType: 'org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl', defaultValue: '', name: 'DockerCreds', required: true
 }
 
   stages {
@@ -10,7 +10,7 @@ pipeline {
           
          steps {
              withCredentials([usernamePassword(
-                 credentialsId: '${DockerCreds1}',
+                 credentialsId: '${DockerCreds}',
                  usernameVariable: 'DEPLOY_USERNAME',
                  passwordVariable: 'DEPLOY_PASSWORD',
                 )]) {
