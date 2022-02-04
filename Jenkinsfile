@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-  credentials credentialType: 'org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl', defaultValue: '', description: 'Please Enter Docker Creds', name: 'DockerCreds1', required: true
+  credentials credentialType: 'org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl', defaultValue: '', name: 'DockerCreds1', required: true
 }
 
   stages {
